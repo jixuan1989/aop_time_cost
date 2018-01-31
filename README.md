@@ -4,7 +4,7 @@ using ASM to calculate functions' time costs.
 
 #How to Use
 
-Firstly, you need add dependiencies:
+Just add dependiencies:
 
 ```xml
 	<dependencies>
@@ -20,19 +20,27 @@ Firstly, you need add dependiencies:
 			<artifactId>asm-commons</artifactId>
 			<version>5.1</version>
 		</dependency>
+		<dependency>
+    			<groupId>cn.edu.tsinghua</groupId>
+    			<artifactId>aopTimeCost</artifactId>
+    			<version>0.0.2</version>
+		</dependency>
 	</dependencies>
 ```
 
-Then, compile `cn.edu.tsinghua.aop` package and `src/main/resources/META-INF/MANIFEST.MF` as a jar (or add the jar if I publish it in official Maven Repo). I suppose the jar name is `aopTimeCost.jar`, and the jar is on `/Users/yourname/Desktop/aopTimeCost.jar`.
+~~Then, compile `cn.edu.tsinghua.aop` package and `src/main/resources/META-INF/MANIFEST.MF` as a jar (or add the jar if I publish it in official Maven Repo). I suppose the jar name is `aopTimeCost.jar`, and the jar is on `/Users/yourname/Desktop/aopTimeCost.jar`.~~
+
+Then, find the file path of the jar `aopTimeCost-0.0.2.jar` (normally it is at your local maven repository: ` ~/.m2/repository/cn/edu/tsinghua/aopTimeCost/0.0.2/aopTimeCost-0.0.2.jar`). Remember this path, I will use <the aop jar file path> to reference it.
 
 Thirdly, if you are using Eclipse, then set the `Run Configuration` for your Main class:
-`VM arguments:` `-javaagent:/Users/hxd/Desktop/aopTimeCost.jar`.
+`VM arguments:` `-javaagent:<the aop jar file path>`. e.g., `VM arguments:` `-javaagent:/Users/jixuan/.m2/repository/cn/edu/tsinghua/aopTimeCost/0.0.2/aopTimeCost-0.0.2.jar`
 
-If you are using Idea, see you tomorrow. (The configuration should be similar, I think.)
+~~If you are using Idea, see you tomorrow. (The configuration should be similar, I think.)~~
 
 Now you can enjoy the powerful of this tool:
 
 For example, you have a class like this:
+
 ```java
 public class Test {
   public void doanything() {
